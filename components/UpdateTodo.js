@@ -17,7 +17,7 @@ class UpdateTodo extends React.Component {
 
     return (
       <View>
-        <TextInput style={styles.textInputs}
+        <TextInput style={styles.textInput}
           defaultValue={text}
           onChangeText={ (newText) => this.setState({ newText }) } />
         <Button title="Save" onPress={ () => {

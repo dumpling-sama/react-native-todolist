@@ -13,13 +13,14 @@ class TodoList extends React.Component {
     return (
       <View style={styles.container}>
         <Header title="Welcome, User" />
-        <Button title="Add Todo" onPress={ 
-          () => this.props.navigation.navigate('Add Todo') 
+        <Button title="Add Todo" style={styles.addTodoBtn} onPress={
+          () => this.props.navigation.navigate('Add Todo')
         } />
-        <FlatList data={this.props.todos} 
+        <FlatList data={this.props.todos}
           renderItem={
             ({ item }) => <TodoItem id={item.id} text={item.text} navigation={this.props.navigation} />
           }
+          keyExtractor={ (item, index) => index.toString() }
         />
       </View>
     );

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, View, Text, TextInput, Stylesheet } from 'react-native'
+import { Button, View, TextInput, StyleSheet } from 'react-native'
 import { bindActionCreators } from 'redux';
 import { addTodo } from '../actions/actions'
 import { connect } from 'react-redux'
@@ -15,7 +15,7 @@ class AddTodo extends React.Component {
   render() {
     return (
       <View>
-        <TextInput style={{ height: 40, padding: 12 }} 
+        <TextInput style={styles.textInput} 
           placeholder="Write what you'd like to do" 
           onChangeText={ (text) => this.setState({ text }) } />
         <Button title="Save" onPress={ () => {
@@ -26,6 +26,13 @@ class AddTodo extends React.Component {
     )
   }
 }
+
+const styles = StyleSheet.create({
+  textInput: {
+    height: 40,
+    padding: 12,
+  },
+});
 
 const mapDispatchToProps = dispatch => (
   bindActionCreators({ addTodo }, dispatch)

@@ -8,10 +8,10 @@ import { connect } from 'react-redux';
 
 class TodoItem extends React.Component {
   render() {
-    const deleteBtn = 
+    const deleteBtn =
       <TouchableOpacity style={styles.deleteBtn} onPress={() => this.props.deleteTodo(this.props.id)}>
-        <Text>Delete</Text>
-      </TouchableOpacity>
+        <Text style={styles.deleteText}>Delete</Text>
+      </TouchableOpacity>;
 
     return (
       <Swipeable rightButtons={[deleteBtn]}>
@@ -23,10 +23,7 @@ class TodoItem extends React.Component {
             }
           }) }>
           <View style={styles.listItemView}>
-            <Text style={styles.listItemText}>
-              {this.props.id}:
-              {this.props.text}
-            </Text>
+            <Text style={styles.listItemText}>{this.props.text}</Text>
           </View>
         </TouchableOpacity>
       </Swipeable>
@@ -38,27 +35,30 @@ class TodoItem extends React.Component {
 const styles = StyleSheet.create({
   listItem: {
     padding: 15,
-    backgroundColor: "#f8f8f8",
+    backgroundColor: '#f8f8f8',
     borderBottomWidth: 1,
-    borderColor: "#EEE"
+    borderColor: '#EEE',
   },
 
   listItemView: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    alignItems: 'center'
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
 
   listItemText: {
-    fontSize: 18
+    fontSize: 18,
   },
 
   deleteBtn: {
     padding: 15,
     backgroundColor: '#E84D5C',
-    color: '#FFFFFF'
+  },
+
+  deleteText: {
+    color: '#FFFFFF',
   }
-})
+});
 
 
 const mapDispatchToProps = dispatch => (
